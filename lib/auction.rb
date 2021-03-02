@@ -23,8 +23,8 @@ class Auction
 
   def potential_revenue
     @items.reduce(0) do |sum, item|
-      item.bids.each do |attendee, price|
       current_high_bid = item.current_high_bid
+      item.bids.each do |attendee, price|
       sum += current_high_bid
       end
     end
