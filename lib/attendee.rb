@@ -6,4 +6,8 @@ class Attendee
     @name = info[:name]
     @budget = info[:budget]
   end
+
+  def get_all_budgets
+    @name
+  end
 end

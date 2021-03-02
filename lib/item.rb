@@ -16,4 +16,8 @@ class Item
       price
     end.max
   end
+
+  def close_bidding
+    # @bids.delete
+  end
 end

@@ -20,4 +20,41 @@ class Auction
       item.bids.empty?
     end
   end
+
+  def potential_revenue
+    @items.reduce(0) do |sum, item|
+      item.bids.each do |attendee, price|
+      current_high_bid = item.current_high_bid
+      sum += current_high_bid
+      end
+    end
+  end
+
+  def bidders
+    bidders_names = @items.each do |item|
+      item.bids.map do |bid|
+        bid[0].name
+      end
+    end
+    bidders_names
+  end
+
+  def bidder_info
+    bidder_info_hash = {}
+    @items.each do |item|
+      item.bids.each do |key, value|
+        bidder_info_hash[key] = {}
+      end
+    end
+
+    @items.each do |item|
+      item.bids.each do |key, value|
+        bidder_info_hash[key] = {
+          budget: key.budget,
+          items: [item]
+        }
+      end
+    end
+    bidder_info_hash
+  end
 end
