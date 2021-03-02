@@ -35,4 +35,17 @@ class ItemTest < Minitest::Test
 
     assert_equal expected, item1.bids
   end
+
+  def test_current_high_bid
+    item1 = Item.new('Chalkware Piggy Bank')
+
+    attendee1 = Attendee.new(name: 'Megan', budget: '$50')
+    attendee2 = Attendee.new(name: 'Bob', budget: '$75')
+    attendee3 = Attendee.new(name: 'Mike', budget: '$100')
+
+    item1.add_bid(attendee2, 20)
+    item1.add_bid(attendee1, 22)
+
+    assert_equal 22, item1.current_high_bid
+  end
 end

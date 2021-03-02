@@ -10,4 +10,10 @@ class Item
   def add_bid(attendee, price)
     @bids[attendee] = price
   end
+
+  def current_high_bid
+    @bids.map do |attendee, price|
+      price
+    end.max
+  end
 end
