@@ -31,12 +31,13 @@ class Auction
   end
 
   def bidders
-    bidders_names = @items.each do |item|
-      item.bids.map do |bid|
-        bid[0].name
+    bidders_names = []
+    @items.each do |item|
+      item.bids.each_key do |key|
+        bidders_names << key.name
       end
     end
-    bidders_names
+    bidders_names.uniq
   end
 
   def bidder_info
