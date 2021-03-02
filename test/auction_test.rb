@@ -39,6 +39,5 @@ class AuctionTest < Minitest::Test
     auction.add_item(item2)
 
     assert_equal ['Chalkware Piggy Bank', 'Bamboo Picture Frame'], auction.item_names
-
   end
 end

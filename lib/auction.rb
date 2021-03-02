@@ -14,5 +14,4 @@ class Auction
       item.name
     end
   end
-
 end
